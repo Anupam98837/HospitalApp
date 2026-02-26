@@ -1,0 +1,265 @@
+/* ───────────────────────────────────────────────
+   LegMed Footer – FULL Stylesheet
+   Updated: 2025-07-07
+   ─────────────────────────────────────────────── */
+
+/* ---- CSS Variables for easy theming ---------------- */
+:root {
+    --legmed-dark: #002746;        /* copyright bar */
+    --legmed-mid:  #003D66;        /* main footer background */
+    --legmed-light-text: #e2ebf3;  /* body text on teal */
+    --legmed-white: #ffffff;
+    --legmed-grey:  #6c757d;
+}
+
+/* ---- Footer Wrapper -------------------------------- */
+.legmed-footer {
+    background-color: var(--legmed-mid);
+    color: var(--legmed-white);
+    margin-top: auto;
+}
+
+/* Top accent stripe (optional: matches footer bg) */
+.legmed-footer-border {
+    height: 2px;
+    background-color: var(--legmed-mid);
+    width: 100%;
+}
+
+/* ---- About & Logo ---------------------------------- */
+.legmed-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legmed-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.legmed-brand-text {
+    color: var(--legmed-white);
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.legmed-footer-text {
+    color: var(--legmed-light-text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.legmed-footer-address .legmed-footer-text {
+    margin-bottom: 0.5rem;
+}
+
+/* ---- Section Titles -------------------------------- */
+.legmed-footer-title {
+    color: var(--legmed-white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* ---- Quick Links ----------------------------------- */
+.legmed-footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legmed-footer-nav li { margin-bottom: 0.5rem; }
+
+.legmed-footer-link,
+.legmed-footer-link:visited {
+    color: var(--legmed-light-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.legmed-footer-link:hover,
+.legmed-footer-link:focus {
+    color: var(--legmed-white);
+    text-decoration: underline;
+}
+
+/* ---- Contact & Social ------------------------------ */
+.legmed-contact-info .legmed-footer-text { margin-bottom: 0.5rem; }
+
+.legmed-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+/* Outline icons on dark background */
+.legmed-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--legmed-white);
+    background-color: transparent;
+    color: var(--legmed-white);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.legmed-social-link:hover,
+.legmed-social-link:focus {
+    background-color: var(--legmed-white);
+    color: var(--legmed-mid);
+    transform: translateY(-2px);
+}
+
+/* ---- Gallery Section ------------------------------- */
+.legmed-gallery-section {
+    background-color: #f1f3f5;   /* leave neutral – sits inside teal footer */
+    padding: 3rem 0 2rem;
+    margin-top: 2rem;
+}
+
+.legmed-gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legmed-gallery-item:hover,
+.legmed-gallery-item:focus {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.legmed-gallery-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* ---- Gallery Modal --------------------------------- */
+.legmed-modal-content {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.legmed-modal-header {
+    background-color: var(--legmed-mid);
+    border-bottom: none;
+    padding: 1rem;
+    position: relative;
+}
+
+.legmed-modal-close {
+    background: none;
+    border: none;
+    color: var(--legmed-white);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1060;
+}
+
+.legmed-modal-close:hover,
+.legmed-modal-close:focus { color: #ccc; }
+
+.legmed-modal-body { padding: 0; }
+
+.legmed-modal-image-container { position: relative; background-color: #000; }
+
+.legmed-modal-image {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+}
+
+.legmed-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--legmed-white);
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 1050;
+}
+
+.legmed-modal-nav:hover,
+.legmed-modal-nav:focus { background-color: rgba(0, 0, 0, 0.7); }
+
+.legmed-modal-prev { left: 15px; }
+.legmed-modal-next { right: 15px; }
+
+/* ---- Copyright Bar --------------------------------- */
+.legmed-copyright-bar {
+    background-color: var(--legmed-dark);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.legmed-copyright-text {
+    color: var(--legmed-white);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ---- Responsive Tweaks ----------------------------- */
+@media (max-width: 991.98px) {
+    .legmed-footer .container .row { text-align: center; }
+    .legmed-footer-logo          { justify-content: center; }
+    .legmed-social-icons         { justify-content: center; }
+    .legmed-gallery-thumb        { height: 150px; }
+}
+
+@media (max-width: 767.98px) {
+    .legmed-footer               { padding: 2rem 0 0; }
+    .legmed-gallery-section      { padding: 2rem 0 1rem; }
+    .legmed-gallery-thumb        { height: 120px; }
+    .legmed-modal-nav            { padding: 8px 12px; font-size: 1rem; }
+    .legmed-modal-prev           { left: 10px; }
+    .legmed-modal-next           { right: 10px; }
+}
+
+@media (max-width: 575.98px) {
+    .legmed-footer-text          { font-size: 0.85rem; }
+    .legmed-footer-title         { font-size: 1rem; }
+    .legmed-brand-text           { font-size: 1.3rem; }
+    .legmed-gallery-thumb        { height: 100px; }
+}
+
+/* ---- Accessibility Focus Rings --------------------- */
+.legmed-footer-link:focus,
+.legmed-social-link:focus,
+.legmed-gallery-item:focus {
+    outline: 2px solid var(--legmed-white);
+    outline-offset: 2px;
+}
+
+.legmed-modal-nav:focus {
+    outline: 2px solid var(--legmed-white);
+    outline-offset: 2px;
+}
+
+/* ---- Print Cleanup --------------------------------- */
+@media print {
+    .legmed-footer,
+    .legmed-copyright-bar { background-color: transparent !important; color: black !important; }
+    .legmed-gallery-section { display: none; }
+}

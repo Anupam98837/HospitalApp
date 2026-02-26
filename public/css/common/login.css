@@ -1,0 +1,196 @@
+/* login.css */
+
+/* Inherit color vars from main.css */
+@import url('../common/main.css');
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Full‐page background & floating blobs */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--light-color), #e0f2fe) fixed;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: -1;
+  animation: float 6s ease-in-out infinite;
+}
+body::before {
+  width: 350px; height: 350px;
+  background: var(--accent-color);
+  top: 5%; left: 5%;
+}
+body::after {
+  width: 250px; height: 250px;
+  background: var(--primary-color);
+  bottom: 5%; right: 5%;
+  animation-delay: 2s;
+}
+
+/* Card container */
+.card {
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  overflow: hidden;
+  animation: fadeInSlide 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Card body padding */
+.card-body {
+  padding: 2rem;
+}
+
+/* Logo float */
+.card-body .text-center img {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Labels & icons */
+.form-label i {
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+.form-label i:hover {
+  transform: scale(1.2);
+}
+
+/* Input fields slide up */
+.form-control {
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.form-control:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(124,77,255,0.25) !important;
+}
+
+/* Input‐group icon */
+.input-group .form-control {
+  padding-right: 2.5rem;
+}
+.input-group-text {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.2s ease, transform 0.3s ease;
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.input-group-text:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Button hover pulse */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Footer fade in */
+.card-body .text-muted {
+  animation: fadeIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Utility spacing & responsive tweaks */
+.container { padding: 2rem 0; }
+@media (max-width:576px) {
+  .card-body { padding: 1.5rem; }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ————————————————————————————————————————————————————————————
+   Pill-style nav override (for .nav-pills in your mentor login/signup)
+   ———————————————————————————————————————————————————————————— */
+   .nav-pills {
+    --pill-padding: 0.6rem 1.2rem;
+    --pill-radius: 2rem;
+    --pill-font: 1rem;
+  }
+  .nav-pills .nav-link {
+    position: relative;
+    padding: var(--pill-padding);
+    font-size: var(--pill-font);
+    border-radius: var(--pill-radius);
+    color: var(--primary-color);
+    transition: color .3s, background .3s;
+  }
+  .nav-pills .nav-link:not(.active):hover {
+    background: var(--light-color);
+  }
+  .nav-pills .nav-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .nav-pills .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: -4px;
+    width: 80%;
+    height: 3px;
+    background: transparent;
+    border-radius: 2px;
+    transition: background .3s;
+  }
+  .nav-pills .nav-link.active::after {
+    background: #fff;
+  }
+  /* Back‐button style */
+.btn-back {
+  --bs-btn-color: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-back:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-1px);
+}

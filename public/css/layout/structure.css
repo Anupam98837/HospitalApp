@@ -1,0 +1,59 @@
+/* Base palette comes from css/common/main.css */
+@import url('../common/main.css');
+
+/* ----- Wrapper & panels ----- */
+.layout          { min-height:100vh; background:var(--light-color); }
+.dashboard-sidebar{ width:250px;height:100vh;position:fixed;top:0;left:0;
+  background:linear-gradient(180deg,var(--primary-color),var(--accent-color));
+  color:#fff; transform:translateX(-100%); transition:.3s ease; display:flex;flex-direction:column;z-index:1000;
+}
+.dashboard-sidebar.active{ transform:translateX(0); }
+@media (min-width:992px){ .dashboard-sidebar{ transform:translateX(0)!important;} }
+
+.close-sidebar{ position:absolute;top:1rem;right:1rem;width:30px;height:30px;
+  border:none;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.close-sidebar:hover{ background:rgba(255,255,255,.2);transform:rotate(90deg);}
+@media (min-width:992px){ .close-sidebar{ display:none!important;} }
+
+.sidebar-logo{ padding:1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,.15);}
+.sidebar-logo img{ width:70px;height:70px;border-radius:50%;border:3px solid rgba(255,255,255,.85);box-shadow:0 4px 10px rgba(0,0,0,.15); }
+
+.sidebar-nav{ flex:1;display:flex;flex-direction:column;gap:.25rem;padding:.5rem 1rem;}
+.sidebar-nav .nav-link{ color:rgba(255,255,255,.9);padding:.8rem 1rem;display:flex;align-items:center;gap:.75rem;border-radius:6px;transition:.3s;font-size:.95rem;position:relative;}
+.sidebar-nav .nav-link i{ width:20px;text-align:center;font-size:1rem;}
+.sidebar-nav .nav-link:hover{ background:rgba(255,255,255,.15);padding-left:1.25rem;color:#fff;}
+.sidebar-nav .nav-link.active{ background:rgba(255,255,255,.25);font-weight:600;color:#fff;padding-left:1rem; }
+.sidebar-nav .nav-link.active::before,
+.sidebar-nav .nav-link:hover::before{ content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:#fff; }
+
+.nav-group{ display:flex;flex-direction:column; }
+.submenu{ display:none;flex-direction:column;margin-left:1rem;gap:.25rem;padding:.4rem 0;}
+.submenu.open{ display:flex; }
+.submenu .nav-link{ font-size:.85rem;padding:.7rem 1rem;color:rgba(255,255,255,.8);}
+.submenu .nav-link:hover{ background:rgba(255,255,255,.1);}
+.group-toggle i.fa-chevron-down{ transition:transform .3s;}
+.group-toggle i.fa-chevron-up{ transform:rotate(180deg); }
+
+.sidebar-auth{ margin-top:auto;padding:1rem;border-top:1px solid rgba(255,255,255,.1);}
+.auth-link{ color:rgba(255,255,255,.9);display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;border-radius:6px;transition:.3s;font-weight:500;}
+.auth-link:hover{ background:rgba(255,255,255,.15);color:#fff;padding-left:1.25rem;}
+
+.sidebar-overlay{ position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:.3s;z-index:900;}
+.sidebar-overlay.active{ opacity:1;visibility:visible;}
+
+.right-panel{ flex:1;min-height:100vh;display:flex;flex-direction:column;transition:margin .3s;}
+.right-panel.shifted{ margin-left:250px;}
+@media (min-width:992px){ .right-panel{ margin-left:250px!important;} }
+
+.admin-header{ height:64px;background:#fff;display:flex;align-items:center;padding:0 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:990;}
+#toggleSidebar{ display:none;background:transparent;border:none;font-size:1.4rem;color:var(--dark-color);}
+#toggleSidebar:hover{ transform:scale(1.1);}
+@media (max-width:991px){ #toggleSidebar{ display:block;} }
+
+.ah_usericon{ color:var(--primary-color);padding:7px;border:2px solid var(--primary-color);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s;width:34px;height:34px;}
+.ah_usericon:hover{ background:var(--primary-color);color:#fff;}
+
+.dropdown-menu{ border:none;box-shadow:0 5px 15px rgba(0,0,0,.1);border-radius:8px;padding:.5rem;margin-top:8px;}
+.dropdown-item{ padding:.5rem 1rem;border-radius:6px;font-size:.9rem;transition:.2s;}
+.dropdown-item:hover{ background:rgba(26,35,126,.08);color:var(--primary-color);}
+.dropdown-header{ font-size:.8rem;color:#6c757d;padding:.5rem 1rem;font-weight:500;}

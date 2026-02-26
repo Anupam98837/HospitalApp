@@ -1,0 +1,13 @@
+@import url('../../common/main.css');     /* keeps the root color vars */
+
+/* basic frosted-glass panel */
+.glass-effect{
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);
+}
+
+.hover-lift:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}

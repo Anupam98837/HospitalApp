@@ -1,0 +1,225 @@
+@import url('../../common/main.css');
+
+/* Doctor Card Styles */
+.doctor-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #fff;
+    transition: box-shadow 0.2s;
+    margin-bottom: 1rem;
+}
+
+.doctor-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.doc-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Slot Chip Styles */
+.slot-chip {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: #fff;
+    margin: 0.125rem 0.25rem 0.25rem 0;
+    font-weight: 500;
+}
+
+.slot-c1 { background: #fde047; color: #92400e; }
+.slot-c2 { background: #fecaca; color: #b91c1c; }
+.slot-c3 { background: #a5f3fc; color: #155e75; }
+.slot-c4 { background: #c4b5fd; color: #6b21a8; }
+.slot-c5 { background: #bbf7d0; color: #166534; }
+.slot-c6 { background: #fbcfe8; color: #be185d; }
+
+/* Blog Teaser Styles */
+.blog-teaser {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 260px;
+    margin-bottom: 1.5rem;
+}
+
+.blog-teaser img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.fade-in { animation: fadeIn 0.4s ease; }
+
+/* Book Button Styles */
+.book-btn {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.book-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Filter Toggle Styles */
+.filter-toggle {
+    cursor: pointer;
+    color: #6c757d;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.filter-toggle:hover { color: #495057; }
+
+/* Slot Selection in Modal */
+.slot-selection {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+.slot-selection .form-check { margin-bottom: 0.5rem; }
+
+.slot-selection .form-check-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.slot-selection .form-check-label:hover { background-color: #e9ecef; }
+
+.slot-selection .form-check-input:checked + .form-check-label { background-color: #d4edda; }
+
+/* Stepper */
+.booking-step { animation: fadeIn 0.3s ease; }
+
+/* Modal Enhancements */
+.modal-header { border-bottom: 1px solid #dee2e6; background: #f8f9fa; }
+.modal-title  { font-weight: 600; color: #495057; }
+.modal-body   { padding: 1.5rem; }
+
+.form-label { font-weight: 500; color: #495057; margin-bottom: 0.5rem; }
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .doctor-card { padding: 1rem; }
+    .doc-img     { width: 120px; height: 120px; }
+    .slot-chip   { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
+    .blog-teaser { height: 200px; }
+}
+
+/* View More Button */
+#viewMoreBtn {
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin: auto;
+}
+
+#viewMoreBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Loading States */
+.loading-shimmer {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Doctor Info Styles */
+.doctor-card h5             { color: #2c3e50; margin-bottom: 0.5rem; }
+.doctor-card .text-muted    { color: #6c757d !important; }
+.doctor-card .text-muted i  { color: #007bff; }
+
+/* Slot Wrap Styles */
+.slot-wrap {
+    min-height: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+.slot-wrap:empty::after {
+    content: "Loading slots...";
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Auth Modal Styles */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Buttons with internal spinner */
+.btn-primary, .btn-success, .btn-outline-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+}
+
+/* Container Adjustments */
+.container-fluid { max-width: 1200px; margin: 0 auto; }
+
+.modal.fade .modal-dialog { transition: transform .3s ease-out; }
+
+.btn-primary{
+    background-color: #003d66 !important;
+}
